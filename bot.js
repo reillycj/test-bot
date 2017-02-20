@@ -37,9 +37,10 @@ function respond() {
     var message = "My man Money Murray";
     postMessage(message);
     this.res.end();
-  } else if (request.text && request.name == "Josh Ryan ") {
+  } else if (request.text && request.name == "Josh Ryan") {
     this.res.writeHead(200);
     var message = "Fuck you Josh";
+    postMessage(message);
     this.res.end();
   } else {
     this.res.writeHead(200);
