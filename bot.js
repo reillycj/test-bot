@@ -1,36 +1,50 @@
 var HTTPS = require('https');
-//var cool = require('cool-ascii-faces');
 
-var botID = "d2bd5538f9ad58fd3f82aee6e9";
-
-// Test change.
+var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
 
-  var testString = "Raindrop";
+  /*{
+  "attachments": [],
+  "avatar_url": "http://i.groupme.com/123456789",
+  "created_at": 1302623328,
+  "group_id": "1234567890",
+  "id": "1234567890",
+  "name": "John",
+  "sender_id": "12345",
+  "sender_type": "user",
+  "source_guid": "GUID",
+  "system": false,
+  "text": "Hello world ☃☃",
+  "user_id": "1234567890"
+}*/
+  
+  var testString = "raindrop";
 
-      //Change botRegex to be whatever you want someone to say as a keyword
-
-      // You can also add multiple regexes
-
-  if(request.text && request.text == testString) {
+  if(request.text && request.text.toLowerCase().indexOf(testString) > -1) {
     this.res.writeHead(200);
-    postMessage();
+    var message = "Droptop";
+    postMessage(message);
+    this.res.end();
+  } else if (request.text && request.name == "Nasty") {
+    this.res.writeHead(200);
+    var message = "Nate you salty bruh";
+    postMessage(message);
+    this.res.end();
+  } else if (request.text && request.name == "Murray") {
+    this.res.writeHead(200);
+    var message = "My man Money Murray";
+    postMessage(message);
     this.res.end();
   } else {
-    console.log("don't care");
     this.res.writeHead(200);
     this.res.end();
   }
 }
 
-function postMessage() {
+function postMessage(message) {
   var botResponse, options, body, botReq;
-
-  botResponse = "Droptop";
-
-  // Put something in botResponse
 
   options = {
     hostname: 'api.groupme.com',
@@ -40,7 +54,7 @@ function postMessage() {
 
   body = {
     "bot_id" : botID,
-    "text" : botResponse
+    "text" : message
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
