@@ -17,7 +17,7 @@ function respond() {
   "source_guid": "GUID",
   "system": false,
   "text": "Hello world ☃☃",
-  "user_id": "1234567890"
+  "user_id": "1234567890" 
 }*/
   
   var testString = "raindrop";
@@ -46,6 +46,15 @@ function respond() {
     this.res.writeHead(200);
     this.res.end();
   }
+
+  var testString = "bruh";
+  if(request.text && request.text.toLowerCase().indexOf(testString) > -1) {
+    this.res.writeHead(200);
+    var src = "http://i0.kym-cdn.com/photos/images/newsfeed/001/023/007/f29.png"
+    postMessage(src);
+    this.res.end();
+  }
+
 }
 
 function postMessage(message) {
