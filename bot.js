@@ -4,14 +4,15 @@ var HTTPS = require('https');
 var botID = "d2bd5538f9ad58fd3f82aee6e9";
 
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/Raindrop$/;
+  var request = JSON.parse(this.req.chunks[0]);
+
+  var testString = "Raindrop";
 
       //Change botRegex to be whatever you want someone to say as a keyword
 
       // You can also add multiple regexes
 
-  if(request.text && botRegex.test(request.text)) {
+  if(request.text && request.text == testString) {
     this.res.writeHead(200);
     postMessage();
     this.res.end();
