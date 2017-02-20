@@ -5,7 +5,11 @@ var botID = "d2bd5538f9ad58fd3f82aee6e9";
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-      botRegex = /^\/cool guy$/;
+      botRegex = /^\/Raindrop$/;
+
+      //Change botRegex to be whatever you want someone to say as a keyword
+
+      // You can also add multiple regexes
 
   if(request.text && botRegex.test(request.text)) {
     this.res.writeHead(200);
@@ -21,7 +25,9 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = "this is a test message";
+  botResponse = "Droptop";
+
+  // Put something in botResponse
 
   options = {
     hostname: 'api.groupme.com',
