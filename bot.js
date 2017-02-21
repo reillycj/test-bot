@@ -22,6 +22,8 @@ function respond() {
   
   var testString = "raindrop";
 
+  console.log("Made it here!!!");
+
   if(request.text && request.text.toLowerCase().indexOf(testString) > -1) {
     this.res.writeHead(200);
     var message = "Droptop";
