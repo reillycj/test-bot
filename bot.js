@@ -3,6 +3,7 @@ var HTTPS = require('https');
 var botID = process.env.BOT_ID;
 
 function respond() {
+  console.log("here???");
   var request = JSON.parse(this.req.chunks[0]);
 
   /*{
